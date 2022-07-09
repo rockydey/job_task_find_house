@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 
 // import data
 import { housesData } from '../data';
@@ -15,6 +15,19 @@ const HouseContentProvider = ({ children }) => {
     const [properties, setProperties] = useState([]);
     const [price, setPrice] = useState('Price range (any)');
     const [move, setMove] = useState('Moving Time (any)');
+
+    //return all countries
+    useEffect(() => {
+        const allCountries = houses.map((house) => {
+            return house.country;
+        })
+
+        //remove duplicates
+        const uniqueCountries = ['Location (any)', ...new Set(allCountries)]
+
+        //set countries
+        setCountries(uniqueCountries);
+    }, [])
 
     return (
         <HouseContent.Provider value={

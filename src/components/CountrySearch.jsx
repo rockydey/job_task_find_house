@@ -24,7 +24,7 @@ const CountrySearch = () => {
                     }
                 </div>
             </Menu.Button>
-            <Menu.Items>
+            <Menu.Items className='px-6 py-8 text-[15px] space-y-6 shadow-md bg-white absolute w-full z-10 list-none rounded-b-lg'>
                 {
                     countries.map((country, index) => {
                         return (
