@@ -16,6 +16,7 @@ const HouseContentProvider = ({ children }) => {
     const [price, setPrice] = useState('Price range (any)');
     const [move, setMove] = useState('Moving Time (any)');
     const [moves, setMoves] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     //return all countries
     useEffect(() => {
@@ -58,6 +59,8 @@ const HouseContentProvider = ({ children }) => {
 
     const handleClick = () => {
 
+        setLoading(true);
+
         const isDefault = (str) => {
             return str.split(' ').includes('(any)');
         }
@@ -80,7 +83,7 @@ const HouseContentProvider = ({ children }) => {
         // console.log(newHouses)
 
         setTimeout(() => {
-            return newHouses.length < 1 ? setHouses([]) : setHouses(newHouses);
+            return newHouses.length < 1 ? setHouses([]) : setHouses(newHouses), setLoading(false)
         }, 1000);
 
         // console.log(houses);
@@ -101,7 +104,8 @@ const HouseContentProvider = ({ children }) => {
                 move,
                 setMove,
                 moves,
-                handleClick
+                handleClick,
+                loading
             }
         }>
             {children}

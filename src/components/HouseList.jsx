@@ -4,9 +4,17 @@ import Home from './Home'
 //import content
 import { HouseContent } from './HouseContent';
 
+import { ImSpinner2 } from 'react-icons/im';
+
 const HouseList = () => {
 
-    const { houses } = useContext(HouseContent);
+    const { houses, loading } = useContext(HouseContent);
+
+    if (loading) {
+        return (
+          <ImSpinner2 className='mx-auto animate-spin text-violet-700 text-4xl mt-[100px]' />
+        );
+      }
 
     if (houses.length < 1) {
         return <div className='text-red-500 text-center font-bold text-3xl'>Sorry, Nothing Found</div>
