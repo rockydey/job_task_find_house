@@ -1,0 +1,6 @@
+.banner{
+    height: 600px;
+    background-image: url('../assets/banner.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+}
