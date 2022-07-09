@@ -18,9 +18,9 @@ const CountrySearch = () => {
                 </div>
                 <div className='ml-3'>
                     {
-                        isOpen ? (
+                        isOpen ? (<IoMdArrowDropup />) : (
                             <IoMdArrowDropdown />
-                        ) : <IoMdArrowDropup />
+                        )
                     }
                 </div>
             </Menu.Button>
@@ -28,7 +28,7 @@ const CountrySearch = () => {
                 {
                     countries.map((country, index) => {
                         return (
-                            <Menu.Item onClick={()=>setCountry(country)} className='cursor-pointer' as='li' key={index}>{country}</Menu.Item>
+                            <Menu.Item onClick={() => setCountry(country)} className='cursor-pointer' as='li' key={index}>{country}</Menu.Item>
                         )
                     })
                 }

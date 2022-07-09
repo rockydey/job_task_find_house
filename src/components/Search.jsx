@@ -12,8 +12,8 @@ const Search = () => {
         <div className='px-[30px] py-6 flex flex-col lg:flex-row justify-between gap-4 shadow-lg bg-white rounded-lg items-center'>
             <CountrySearch/>
             <MoveDateSearch/>
-            <PriceSearch/>
             <PropertySearch/>
+            <PriceSearch/>
             <button className='bg-violet-700 hover:bg-violet-800 text-white px-5 py-2 rounded-lg'>
                 Search
             </button>
