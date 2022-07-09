@@ -44,7 +44,7 @@ const PriceSearch = () => {
             <Menu.Button onClick={() => setIsOpen(!isOpen)} className='flex h-[64px] items-center px-[18px] border rounded-lg'>
                 <div>
                     <div className='text-[15px] font-medium leading-tight'>{price}</div>
-                    <div className='text-[13px]'>Choose Price Range</div>
+                    <div className='text-[13px]'>Price Range</div>
                 </div>
                 <div className='ml-3'>
                     {

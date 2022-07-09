@@ -15,6 +15,7 @@ const HouseContentProvider = ({ children }) => {
     const [properties, setProperties] = useState([]);
     const [price, setPrice] = useState('Price range (any)');
     const [move, setMove] = useState('Moving Time (any)');
+    const [moves, setMoves] = useState([]);
 
     //return all countries
     useEffect(() => {
@@ -42,6 +43,19 @@ const HouseContentProvider = ({ children }) => {
         setProperties(uniqueProperties);
     }, [])
 
+    //return all moving data
+    useEffect(() => {
+        const allMoves = houses.map((house) => {
+            return house.move;
+        })
+
+        //remove duplicates
+        const uniqueMoves = ['Moving Time (any)', ...new Set(allMoves)]
+
+        //set properties
+        setMoves(uniqueMoves);
+    }, [])
+
     return (
         <HouseContent.Provider value={
             {
@@ -54,6 +68,9 @@ const HouseContentProvider = ({ children }) => {
                 price,
                 setPrice,
                 houses,
+                move,
+                setMove,
+                moves
             }
         }>
             {children}
