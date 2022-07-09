@@ -8,13 +8,16 @@ import PropertySearch from './PropertySearch';
 import { HouseContent } from './HouseContent';
 
 const Search = () => {
+
+    const { handleClick } = useContext(HouseContent);
+
     return (
         <div className='px-[30px] py-6 flex flex-col lg:flex-row justify-between gap-4 shadow-lg bg-white rounded-lg items-center'>
-            <CountrySearch/>
-            <MoveDateSearch/>
-            <PropertySearch/>
-            <PriceSearch/>
-            <button className='bg-violet-700 hover:bg-violet-800 text-white px-5 py-2 rounded-lg'>
+            <CountrySearch />
+            <MoveDateSearch />
+            <PropertySearch />
+            <PriceSearch />
+            <button onClick={() => handleClick()} className='bg-violet-700 hover:bg-violet-800 text-white px-5 py-2 rounded-lg'>
                 Search
             </button>
         </div>

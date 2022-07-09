@@ -56,6 +56,10 @@ const HouseContentProvider = ({ children }) => {
         setMoves(uniqueMoves);
     }, [])
 
+    const handleClick = () => {
+
+    };
+
     return (
         <HouseContent.Provider value={
             {
@@ -70,7 +74,8 @@ const HouseContentProvider = ({ children }) => {
                 houses,
                 move,
                 setMove,
-                moves
+                moves,
+                handleClick
             }
         }>
             {children}
