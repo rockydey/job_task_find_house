@@ -58,6 +58,32 @@ const HouseContentProvider = ({ children }) => {
 
     const handleClick = () => {
 
+        const isDefault = (str) => {
+            return str.split(' ').includes('(any)');
+        }
+
+        const minPrice = parseInt(price.split(' ')[0]);
+        const maxPrice = parseInt(price.split(' ')[2]);
+
+        const newHouses = housesData.filter((house) => {
+            const housePrice = parseInt(house.price);
+
+            if (house.country === country && house.type === property && house.move === move && housePrice >= minPrice && housePrice <= maxPrice) {
+                return house;
+            }
+
+            if (isDefault(country) && isDefault(property) && isDefault(move) && isDefault(price)) {
+                return house;
+            }
+        });
+
+        // console.log(newHouses)
+
+        setTimeout(() => {
+            return newHouses.length < 1 ? setHouses([]) : setHouses(newHouses);
+        }, 1000);
+
+        // console.log(houses);
     };
 
     return (

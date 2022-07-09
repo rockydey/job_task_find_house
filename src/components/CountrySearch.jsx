@@ -8,7 +8,6 @@ import { HouseContent } from './HouseContent';
 const CountrySearch = () => {
     const { country, setCountry, countries } = useContext(HouseContent);
     const [isOpen, setIsOpen] = useState(false);
-    console.log(countries);
     return (
         <Menu as='div' className='w-full lg:max-w-[296px] cursor-pointer relative'>
             <Menu.Button onClick={() => setIsOpen(!isOpen)} className='flex h-[64px] items-center px-[18px] border rounded-lg'>
