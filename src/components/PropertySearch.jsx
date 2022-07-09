@@ -13,7 +13,7 @@ const PropertySearch = () => {
             <Menu.Button onClick={() => setIsOpen(!isOpen)} className='flex h-[64px] items-center px-[18px] border rounded-lg'>
                 <div>
                     <div className='text-[15px] font-medium leading-tight'>{property}</div>
-                    <div className='text-[13px]'>Select Your Place</div>
+                    <div className='text-[13px]'>Select Type</div>
                 </div>
                 <div className='ml-3'>
                     {
