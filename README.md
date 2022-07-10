@@ -1,70 +1,594 @@
-# Getting Started with Create React App
+# Getting Started with [Find House](https://find-house-47a2d.web.app/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Feature :
+-Search Empty house or apartment in two countries
+-4 type filter implement
+-if 4 type of filter are matched than search result will be shown
+-if 4 type of filter sets in default value then show all results
 
-## Available Scripts
+### Technology :
+-React
+-Javascript
+-React Icons
+-Firebase
+-Tailwind CSS
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Demo Data for better search : 
+export const housesData = [
+    {
+      id: 1,
+      type: 'House',
+      name: 'Firlands',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/D9bJMXN/house1.png",
+      country: 'United States',
+      address: '7240C Argyle St. Lawndale, CA 90260',
+      bedrooms: '6',
+      bathrooms: '3',
+      surface: '4200 sq ft',
+      year: '2016',
+      price: '750',
+      move: "One Month Later" 
+    },
+    {
+      id: 2,
+      type: 'House',
+      name: 'Woodlandside',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/XX8WnKm/house2.png",
+      country: 'Canada',
+      address: '798 Talbot St. Bridgewater, NJ 08807',
+      bedrooms: '6',
+      bathrooms: '3',
+      surface: '4200 sq ft',
+      year: '2016',
+      price: '1400',
+      move: "Next Month"
+    },
+    {
+      id: 3,
+      type: 'House',
+      name: 'Primrose View',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/dr27RVh/house3.png",
+      country: 'United States',
+      address: '2 Glen Creek St. Alexandria, VA 22304',
+      bedrooms: '6',
+      bathrooms: '3',
+      surface: '4200 sq ft',
+      year: '2016',
+      price: '540',
+      move: "Two Month Later" 
+    },
+    {
+      id: 4,
+      type: 'House',
+      name: 'The Firs',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/C0TrJ6m/house4.png",
+      country: 'Canada',
+      address: '84 Woodland St. Cocoa, FL 32927',
+      bedrooms: '6',
+      bathrooms: '3',
+      surface: '4200 sq ft',
+      year: '2016',
+      price: '2200',
+      move: "Next Month" 
+    },
+    {
+      id: 5,
+      type: 'House',
+      name: 'Primroseways',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/4222xN5/house5.png",
+      country: 'United States',
+      address: '28 Westport Dr. Warminster, PA 18974',
+      bedrooms: '5',
+      bathrooms: '3',
+      surface: '4200 sq ft',
+      year: '2015',
+      price: '2050',
+      move: "Two Month Later" 
+    },
+    {
+      id: 6,
+      type: 'House',
+      name: 'Ford Lodge',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/556jSPv/house6.png",
+      country: 'Canada',
+      address: '32 Pawnee Street Butte, MT 59701',
+      bedrooms: '6',
+      bathrooms: '3',
+      surface: '6200 sq ft',
+      year: '2014',
+      price: '1570',
+      move: "One Month Later"
+    },
+    {
+      id: 7,
+      type: 'Apartament',
+      name: 'Owls End',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/Tv6xcTW/a1.png",
+      country: 'Canada',
+      address: '32 Pawnee Street Butte, MT 59701',
+      bedrooms: '2',
+      bathrooms: '1',
+      surface: '1200 sq ft',
+      year: '2012',
+      price: '920',
+      move: "One Month Later" 
+    },
+    {
+      id: 8,
+      type: 'Apartament',
+      name: 'Oak Bank',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/ckRv4gw/a2.png",
+      country: 'United States',
+      address: '28 Westport Dr. Warminster, PA 18974',
+      bedrooms: '3',
+      bathrooms: '1',
+      surface: '1000 sq ft',
+      year: '2011',
+      price: '1380',
+      move: "Two Month Later" 
+    },
+    {
+      id: 9,
+      type: 'Apartament',
+      name: 'Pear House',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/SmCMqXP/a3.png",
+      country: 'United States',
+      address: '84 Woodland St. Cocoa, FL 32927',
+      bedrooms: '2',
+      bathrooms: '1',
+      surface: '1100 sq ft',
+      year: '2011',
+      price: '650',
+      move: "Next Month" 
+    },
+    {
+      id: 10,
+      type: 'House',
+      name: 'Ginger House',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/mTkgBNb/house7.png",
+      country: 'Canada',
+      address: '7240C Argyle St. Lawndale, CA 90260',
+      bedrooms: '5',
+      bathrooms: '3',
+      surface: '3200 sq ft',
+      year: '2015',
+      price: '2500',
+      move: "Two Month Later" 
+    },
+    {
+      id: 11,
+      type: 'House',
+      name: 'The Honeysuckles',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/zfMksTn/house8.png",
+      country: 'Canada',
+      address: '798 Talbot St. Bridgewater, NJ 08807',
+      bedrooms: '7',
+      bathrooms: '2',
+      surface: '2200 sq ft',
+      year: '2019',
+      price: '2430',
+      move: "Next Month" 
+    },
+    {
+      id: 12,
+      type: 'House',
+      name: 'Mill House',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/p2n8NTT/house9.png",
+      country: 'United States',
+      address: '2 Glen Creek St. Alexandria, VA 22304',
+      bedrooms: '4',
+      bathrooms: '4',
+      surface: '4600 sq ft',
+      year: '2015',
+      price: '1750',
+      move: "One Month Later"
+    },
+    {
+      id: 13,
+      type: 'House',
+      name: 'Meadow View',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/R75HDRs/house10.png",
+      country: 'Canada',
+      address: '84 Woodland St. Cocoa, FL 32927',
+      bedrooms: '5',
+      bathrooms: '2',
+      surface: '5200 sq ft',
+      year: '2014',
+      price: '1280',
+      move: "Next Month" 
+    },
+    {
+      id: 14,
+      type: 'House',
+      name: 'Chilly End',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/nc3rMGX/house11.png",
+      country: 'United States',
+      address: '28 Westport Dr. Warminster, PA 18974',
+      bedrooms: '5',
+      bathrooms: '2',
+      surface: '3200 sq ft',
+      year: '2011',
+      price: '1780',
+      move: "Two Month Later"
+    },
+    {
+      id: 15,
+      type: 'House',
+      name: 'Meadoways',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/cv8H410/house12.png",
+      country: 'Canada',
+      address: '32 Pawnee Street Butte, MT 59701',
+      bedrooms: '4',
+      bathrooms: '3',
+      surface: '5200 sq ft',
+      year: '2013',
+      price: '870',
+      move: "Next Month" 
+    },
+    {
+      id: 16,
+      type: 'Apartament',
+      name: 'London Lodge',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/8Y8jN44/a4.png",
+      country: 'Canada',
+      address: '32 Pawnee Street Butte, MT 59701',
+      bedrooms: '2',
+      bathrooms: '1',
+      surface: '1300 sq ft',
+      year: '2011',
+      price: '620',
+      move: "One Month Later"
+    },
+    {
+      id: 17,
+      type: 'Apartament',
+      name: 'Orchard View',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/CBjwLxn/a5.png",
+      country: 'United States',
+      address: '28 Westport Dr. Warminster, PA 18974',
+      bedrooms: '3',
+      bathrooms: '1',
+      surface: '1000 sq ft',
+      year: '2012',
+      price: '745',
+      move: "Next Month" 
+    },
+    {
+      id: 18,
+      type: 'Apartament',
+      name: 'Orchardside',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/QKkvwfq/a6.png",
+      country: 'Canada',
+      address: '84 Woodland St. Cocoa, FL 32927',
+      bedrooms: '3',
+      bathrooms: '1',
+      surface: '1200 sq ft',
+      year: '2010',
+      price: '895',
+      move: "One Month Later"
+    },
+    {
+      id: 19,
+      type: 'House',
+      name: 'Firlands',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/D9bJMXN/house1.png",
+      country: 'Canada',
+      address: '7240C Argyle St. Lawndale, CA 90260',
+      bedrooms: '6',
+      bathrooms: '3',
+      surface: '4200 sq ft',
+      year: '2016',
+      price: '750',
+      move: "One Month Later" 
+    },
+    {
+      id: 20,
+      type: 'House',
+      name: 'Woodlandside',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/XX8WnKm/house2.png",
+      country: 'United States',
+      address: '798 Talbot St. Bridgewater, NJ 08807',
+      bedrooms: '6',
+      bathrooms: '3',
+      surface: '4200 sq ft',
+      year: '2016',
+      price: '1400',
+      move: "Next Month"
+    },
+    {
+      id: 21,
+      type: 'House',
+      name: 'Primrose View',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/dr27RVh/house3.png",
+      country: 'Canada',
+      address: '2 Glen Creek St. Alexandria, VA 22304',
+      bedrooms: '6',
+      bathrooms: '3',
+      surface: '4200 sq ft',
+      year: '2016',
+      price: '540',
+      move: "Two Month Later" 
+    },
+    {
+      id: 22,
+      type: 'House',
+      name: 'The Firs',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/C0TrJ6m/house4.png",
+      country: 'United States',
+      address: '84 Woodland St. Cocoa, FL 32927',
+      bedrooms: '6',
+      bathrooms: '3',
+      surface: '4200 sq ft',
+      year: '2016',
+      price: '2200',
+      move: "Next Month" 
+    },
+    {
+      id: 23,
+      type: 'House',
+      name: 'Primroseways',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/4222xN5/house5.png",
+      country: 'Canada',
+      address: '28 Westport Dr. Warminster, PA 18974',
+      bedrooms: '5',
+      bathrooms: '3',
+      surface: '4200 sq ft',
+      year: '2015',
+      price: '2050',
+      move: "Two Month Later" 
+    },
+    {
+      id: 24,
+      type: 'House',
+      name: 'Ford Lodge',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/556jSPv/house6.png",
+      country: 'United States',
+      address: '32 Pawnee Street Butte, MT 59701',
+      bedrooms: '6',
+      bathrooms: '3',
+      surface: '6200 sq ft',
+      year: '2014',
+      price: '1570',
+      move: "One Month Later"
+    },
+    {
+      id: 25,
+      type: 'Apartament',
+      name: 'Owls End',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/Tv6xcTW/a1.png",
+      country: 'United States',
+      address: '32 Pawnee Street Butte, MT 59701',
+      bedrooms: '2',
+      bathrooms: '1',
+      surface: '1200 sq ft',
+      year: '2012',
+      price: '920',
+      move: "One Month Later" 
+    },
+    {
+      id: 26,
+      type: 'Apartament',
+      name: 'Oak Bank',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/ckRv4gw/a2.png",
+      country: 'Canada',
+      address: '28 Westport Dr. Warminster, PA 18974',
+      bedrooms: '3',
+      bathrooms: '1',
+      surface: '1000 sq ft',
+      year: '2011',
+      price: '1380',
+      move: "Two Month Later" 
+    },
+    {
+      id: 27,
+      type: 'Apartament',
+      name: 'Pear House',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/SmCMqXP/a3.png",
+      country: 'Canada',
+      address: '84 Woodland St. Cocoa, FL 32927',
+      bedrooms: '2',
+      bathrooms: '1',
+      surface: '1100 sq ft',
+      year: '2011',
+      price: '650',
+      move: "Next Month" 
+    },
+    {
+      id: 28,
+      type: 'House',
+      name: 'Ginger House',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/mTkgBNb/house7.png",
+      country: 'United States',
+      address: '7240C Argyle St. Lawndale, CA 90260',
+      bedrooms: '5',
+      bathrooms: '3',
+      surface: '3200 sq ft',
+      year: '2015',
+      price: '2500',
+      move: "Two Month Later" 
+    },
+    {
+      id: 29,
+      type: 'House',
+      name: 'The Honeysuckles',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/zfMksTn/house8.png",
+      country: 'United States',
+      address: '798 Talbot St. Bridgewater, NJ 08807',
+      bedrooms: '7',
+      bathrooms: '2',
+      surface: '2200 sq ft',
+      year: '2019',
+      price: '2430',
+      move: "Next Month" 
+    },
+    {
+      id: 30,
+      type: 'House',
+      name: 'Mill House',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/p2n8NTT/house9.png",
+      country: 'Canada',
+      address: '2 Glen Creek St. Alexandria, VA 22304',
+      bedrooms: '4',
+      bathrooms: '4',
+      surface: '4600 sq ft',
+      year: '2015',
+      price: '1750',
+      move: "One Month Later"
+    },
+    {
+      id: 31,
+      type: 'House',
+      name: 'Meadow View',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/R75HDRs/house10.png",
+      country: 'United States',
+      address: '84 Woodland St. Cocoa, FL 32927',
+      bedrooms: '5',
+      bathrooms: '2',
+      surface: '5200 sq ft',
+      year: '2014',
+      price: '1280',
+      move: "Next Month" 
+    },
+    {
+      id: 32,
+      type: 'House',
+      name: 'Chilly End',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/nc3rMGX/house11.png",
+      country: 'Canada',
+      address: '28 Westport Dr. Warminster, PA 18974',
+      bedrooms: '5',
+      bathrooms: '2',
+      surface: '3200 sq ft',
+      year: '2011',
+      price: '1780',
+      move: "Two Month Later"
+    },
+    {
+      id: 33,
+      type: 'House',
+      name: 'Meadoways',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/cv8H410/house12.png",
+      country: 'United States',
+      address: '32 Pawnee Street Butte, MT 59701',
+      bedrooms: '4',
+      bathrooms: '3',
+      surface: '5200 sq ft',
+      year: '2013',
+      price: '870',
+      move: "Next Month" 
+    },
+    {
+      id: 34,
+      type: 'Apartament',
+      name: 'London Lodge',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/8Y8jN44/a4.png",
+      country: 'United States',
+      address: '32 Pawnee Street Butte, MT 59701',
+      bedrooms: '2',
+      bathrooms: '1',
+      surface: '1300 sq ft',
+      year: '2011',
+      price: '620',
+      move: "One Month Later"
+    },
+    {
+      id: 35,
+      type: 'Apartament',
+      name: 'Orchard View',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/CBjwLxn/a5.png",
+      country: 'Canada',
+      address: '28 Westport Dr. Warminster, PA 18974',
+      bedrooms: '3',
+      bathrooms: '1',
+      surface: '1000 sq ft',
+      year: '2012',
+      price: '745',
+      move: "Next Month" 
+    },
+    {
+      id: 36,
+      type: 'Apartament',
+      name: 'Orchardside',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, illoat. Repudiandae ratione impedit delectus consectetur. Aspernaturvero obcaecati placeat ab distinctio unde ipsam molestias atqueratione delectus blanditiis nemo eius dignissimos doloremque quaealiquid maiores id tempore consequatur, quod pariatur saepe.',
+      image: "https://i.ibb.co/QKkvwfq/a6.png",
+      country: 'United States',
+      address: '84 Woodland St. Cocoa, FL 32927',
+      bedrooms: '3',
+      bathrooms: '1',
+      surface: '1200 sq ft',
+      year: '2010',
+      price: '895',
+      move: "One Month Later"
+    },
+  ];
