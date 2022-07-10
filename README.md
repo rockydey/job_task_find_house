@@ -1,17 +1,17 @@
 # Getting Started with [Find House](https://find-house-47a2d.web.app/)
 
 ## Feature :
--Search Empty house or apartment in two countries
--4 type filter implement
--if 4 type of filter are matched than search result will be shown
--if 4 type of filter sets in default value then show all results
+- Search Empty house or apartment in two countries
+- 4 type filter implement
+- if 4 type of filter are matched than search result will be shown
+- if 4 type of filter sets in default value then show all results
 
 ### Technology :
--React
--Javascript
--React Icons
--Firebase
--Tailwind CSS
+- React
+- Javascript
+- React Icons
+- Firebase
+- Tailwind CSS
 
 ### Demo Data for better search : 
 export const housesData = [
