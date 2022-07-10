@@ -29,7 +29,7 @@ const HouseContentProvider = ({ children }) => {
 
         //set countries
         setCountries(uniqueCountries);
-    }, [])
+    }, [houses])
 
     //return all properties
     useEffect(() => {
@@ -42,7 +42,7 @@ const HouseContentProvider = ({ children }) => {
 
         //set properties
         setProperties(uniqueProperties);
-    }, [])
+    }, [houses])
 
     //return all moving data
     useEffect(() => {
@@ -55,7 +55,7 @@ const HouseContentProvider = ({ children }) => {
 
         //set properties
         setMoves(uniqueMoves);
-    }, [])
+    }, [houses])
 
     const handleClick = () => {
 
